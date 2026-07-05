@@ -1,159 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajib Top-Up House</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajib Top-Up House</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#0f172a;
-color:#fff;
-}
-
-header{
-background:#ff6b00;
-padding:20px;
-text-align:center;
-font-size:30px;
-font-weight:bold;
-}
-
-.container{
-max-width:500px;
-margin:30px auto;
-padding:20px;
-}
-
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-box-shadow:0 0 10px rgba(0,0,0,.3);
-}
-
-h2{
-text-align:center;
-margin-bottom:20px;
-}
-
-input,select{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:8px;
-font-size:16px;
-}
-
-button{
-width:100%;
-padding:14px;
-background:#ff6b00;
-color:#fff;
-border:none;
-border-radius:8px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-}
-
-button:hover{
-background:#ff8800;
-}
-
-.payment{
-margin-top:20px;
-padding:15px;
-background:#111827;
-border-radius:10px;
-line-height:1.8;
-}
-
-.payment a{
-color:#00ff99;
-text-decoration:none;
-}
-
-footer{
-margin-top:30px;
-text-align:center;
-padding:15px;
-color:#bbb;
-}
-</style>
-
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-🔥 Rajib Top-Up House 🔥
+  <h1>Rajib Top-Up House</h1>
+  <p>Fast & Trusted Free Fire Top-Up</p>
 </header>
 
-<div class="container">
+<section class="banner">
+  <h2>🔥 Free Fire Top-Up Bangladesh 🔥</h2>
+</section>
 
-<div class="card">
+<section class="order-box">
 
-<h2>Free Fire Top-Up</h2>
+<input type="text" id="uid" placeholder="Free Fire UID">
 
-<input type="text" placeholder="Enter Free Fire UID">
+<input type="text" id="player" placeholder="Player Name">
 
-<select>
+<input type="tel" id="mobile" placeholder="Mobile Number">
+
+<select id="package">
 <option>Select Package</option>
 
 <option>Weekly Lite - ৳40</option>
 <option>Weekly Membership - ৳150</option>
 <option>Monthly Membership - ৳700</option>
 
-<option>25 Diamond - ৳25</option>
-<option>50 Diamond - ৳45</option>
-<option>115 Diamond - ৳85</option>
-<option>240 Diamond - ৳165</option>
-<option>355 Diamond - ৳245</option>
-<option>480 Diamond - ৳325</option>
-<option>610 Diamond - ৳405</option>
-<option>850 Diamond - ৳560</option>
-<option>1090 Diamond - ৳715</option>
+<option>25 Diamonds - ৳25</option>
+<option>50 Diamonds - ৳45</option>
+<option>115 Diamonds - ৳85</option>
+<option>240 Diamonds - ৳165</option>
+<option>355 Diamonds - ৳245</option>
+<option>480 Diamonds - ৳325</option>
+<option>610 Diamonds - ৳405</option>
+<option>850 Diamonds - ৳560</option>
+<option>1090 Diamonds - ৳715</option>
+
 </select>
 
-<input type="text" placeholder="Your Name">
+<button onclick="orderNow()">Place Order</button>
 
-<input type="text" placeholder="Your Mobile Number">
+</section>
 
-<button>Place Order</button>
+<section class="payment">
 
-<div class="payment">
-
-<h3>Payment Method</h3>
+<h2>Payment</h2>
 
 <p>📱 bKash: <b>01788655205</b></p>
 
 <p>📱 Nagad: <b>01788655205</b></p>
 
 <p>💬 WhatsApp:
-<a href="https://wa.me/8801788655205">01788655205</a>
+<a href="https://wa.me/8801788655205">
+01788655205
+</a>
 </p>
 
-<p>⏰ Delivery Time: 1–10 Minutes</p>
-
-<p>✅ 100% Trusted Service</p>
-
-</div>
-
-</div>
-
-</div>
+</section>
 
 <footer>
-© 2026 Rajib Top-Up House. All Rights Reserved.
+
+© 2026 Rajib Top-Up House
+
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
