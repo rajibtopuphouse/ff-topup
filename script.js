@@ -1,34 +1,26 @@
-function orderNow() {
+function placeOrder() {
 
-let uid = document.getElementById("uid").value;
-let player = document.getElementById("player").value;
-let mobile = document.getElementById("mobile").value;
-let pack = document.getElementById("package").value;
+const uid = document.getElementById("uid").value;
+const name = document.getElementById("name").value;
+const mobile = document.getElementById("mobile").value;
+const pack = document.getElementById("package").value;
 
-if(uid=="" || player=="" || mobile=="" || pack=="Select Package"){
-    alert("সব তথ্য পূরণ করুন");
-    return;
+if(uid=="" || name=="" || mobile=="" || pack==""){
+alert("সব তথ্য পূরণ করুন");
+return;
 }
 
-let message =
-"✅ Order Received!\n\n" +
-"UID: " + uid +
-"\nPlayer: " + player +
-"\nPackage: " + pack +
-"\nMobile: " + mobile +
-"\n\nbKash/Nagad: 01788655205\nWhatsApp: 01788655205";
-
-alert(message);
-
-window.open(
+const whatsapp =
 "https://wa.me/8801788655205?text=" +
+
 encodeURIComponent(
-"New Free Fire Order\n\nUID: "+uid+
-"\nPlayer: "+player+
-"\nPackage: "+pack+
-"\nMobile: "+mobile
-),
-"_blank"
+"🎮 Rajib Top-Up House\n\n" +
+"UID: " + uid + "\n" +
+"Player: " + name + "\n" +
+"Mobile: " + mobile + "\n" +
+"Package: " + pack
 );
+
+window.open(whatsapp,"_blank");
 
 }
