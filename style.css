@@ -127,3 +127,36 @@ font-size:18px;
 }
 
 }
+.packages{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:15px;
+margin:20px 0;
+}
+
+.package{
+background:#0f172a;
+border:2px solid #ff6a00;
+border-radius:12px;
+padding:15px;
+text-align:center;
+transition:.3s;
+cursor:pointer;
+}
+
+.package:hover{
+background:#ff6a00;
+transform:translateY(-5px);
+}
+
+.package h3{
+font-size:16px;
+margin-bottom:8px;
+color:#fff;
+}
+
+.package p{
+font-size:22px;
+font-weight:bold;
+color:#ffd700;
+}
