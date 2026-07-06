@@ -199,3 +199,56 @@ font-size:18px;
 color:#fff;
 margin-bottom:20px;
 }
+.logo h2{
+    color:#fff;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.logo p{
+    color:#fff;
+    font-size:16px;
+}
+
+.banner{
+    background:linear-gradient(135deg,#ff6a00,#ff9800);
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    margin:20px;
+}
+
+.banner-img{
+    width:100%;
+    max-height:300px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.banner h1{
+    font-size:34px;
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.banner p{
+    font-size:18px;
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.buy-btn{
+    display:inline-block;
+    background:#fff;
+    color:#ff6a00;
+    padding:12px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.buy-btn:hover{
+    background:#111827;
+    color:#fff;
+}
