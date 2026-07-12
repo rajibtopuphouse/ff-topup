@@ -368,3 +368,15 @@ border-left:5px solid #ff6a00;
 border-radius:10px;
 font-size:18px;
 }
+.slider{
+    width:100%;
+    margin:20px auto;
+    text-align:center;
+}
+
+.slider img{
+    width:100%;
+    max-height:350px;
+    object-fit:cover;
+    border-radius:15px;
+}
