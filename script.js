@@ -36,3 +36,28 @@ setInterval(function () {
   current = (current + 1) % images.length;
   document.getElementById("slider").src = images[current];
 }, 3000);
+function placeOrder() {
+  const uid = document.getElementById("uid").value;
+  const name = document.getElementById("name").value;
+  const mobile = document.getElementById("mobile").value;
+  const pack = document.getElementById("package").value;
+
+  if (!uid || !name || !mobile || !pack) {
+    alert("সব তথ্য পূরণ করুন।");
+    return;
+  }
+
+  const message =
+`🎮 Rajib Top-Up House
+
+👤 Name: ${name}
+🆔 UID: ${uid}
+📱 Mobile: ${mobile}
+💎 Package: ${pack}`;
+
+  const whatsapp =
+    "https://wa.me/8801788655205?text=" +
+    encodeURIComponent(message);
+
+  window.open(whatsapp, "_blank");
+}
