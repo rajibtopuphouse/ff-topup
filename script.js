@@ -24,3 +24,15 @@ encodeURIComponent(
 window.open(whatsapp,"_blank");
 
 }
+const images = [
+  "slider1.jpg",
+  "slider2.jpg",
+  "slider3.jpg"
+];
+
+let current = 0;
+
+setInterval(function () {
+  current = (current + 1) % images.length;
+  document.getElementById("slider").src = images[current];
+}, 3000);
