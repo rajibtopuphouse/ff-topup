@@ -407,3 +407,27 @@ font-size:18px;
 .review-card b{
     color:#ffd700;
 }
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#1f2937;
+display:flex;
+justify-content:space-around;
+padding:10px 0;
+border-top:2px solid #ff6a00;
+z-index:1000;
+}
+
+.bottom-nav a{
+color:#fff;
+text-decoration:none;
+text-align:center;
+font-size:14px;
+font-weight:bold;
+}
+
+body{
+padding-bottom:70px;
+}
