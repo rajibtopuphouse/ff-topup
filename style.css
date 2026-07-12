@@ -380,3 +380,30 @@ font-size:18px;
     object-fit:cover;
     border-radius:15px;
 }
+.reviews{
+    margin:30px 20px;
+}
+
+.reviews h2{
+    text-align:center;
+    color:#ffd700;
+    margin-bottom:20px;
+}
+
+.review-card{
+    background:#1f2937;
+    border-left:5px solid #ff6a00;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:15px;
+    color:#fff;
+}
+
+.review-card p{
+    margin:10px 0;
+    font-size:16px;
+}
+
+.review-card b{
+    color:#ffd700;
+}
