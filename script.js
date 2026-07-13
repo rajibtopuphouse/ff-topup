@@ -36,13 +36,6 @@ setInterval(function () {
   current = (current + 1) % images.length;
   document.getElementById("slider").src = images[current];
 }, 3000);
-
-let current = 0;
-
-setInterval(function () {
-  current = (current + 1) % images.length;
-  document.getElementById("slider").src = images[current];
-}, 3000);
 function placeOrder() {
   const uid = document.getElementById("uid").value;
   const name = document.getElementById("name").value;
