@@ -25,8 +25,17 @@ window.open(whatsapp,"_blank");
 
 }
 const images = [
-  "1783852642908.jpg"
+  "1783852642908.jpg",
+  "1783852699516.jpg",
+  "1783852714212.jpg"
 ];
+
+let current = 0;
+
+setInterval(function () {
+  current = (current + 1) % images.length;
+  document.getElementById("slider").src = images[current];
+}, 3000);
 
 let current = 0;
 
