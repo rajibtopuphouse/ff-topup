@@ -431,3 +431,13 @@ font-weight:bold;
 body{
 padding-bottom:70px;
 }
+.slider{
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
