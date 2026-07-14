@@ -179,5 +179,12 @@ document.getElementById("logoutBtn").onclick = function () {
   });
 };
 </script>
+    <script>
+auth.onAuthStateChanged(function(user) {
+  if (!user) {
+    window.location = "login.html";
+  }
+});
+</script>
 </body>
 </html>
