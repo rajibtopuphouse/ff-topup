@@ -441,3 +441,12 @@ padding-bottom:70px;
     height: auto;
     display: block;
 }
+#logoutBtn{
+    background:#ff3b30;
+    color:#fff;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    float:right;
+}
