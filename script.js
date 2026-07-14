@@ -1,5 +1,21 @@
 function placeOrder() {
 
+  const uidEl = document.getElementById("uid");
+  const nameEl = document.getElementById("name");
+  const mobileEl = document.getElementById("mobile");
+  const packEl = document.getElementById("package");
+
+  alert(
+    "UID: " + (uidEl ? uidEl.value : "Not Found") +
+    "\nName: " + (nameEl ? nameEl.value : "Not Found") +
+    "\nMobile: " + (mobileEl ? mobileEl.value : "Not Found") +
+    "\nPackage: " + (packEl ? packEl.value : "Not Found")
+  );
+
+  // এরপর আপনার আগের কোড থাকবে...
+}
+function placeOrder() {
+
   const uid = document.getElementById("uid").value;
   const name = document.getElementById("name").value;
   const mobile = document.getElementById("mobile").value;
