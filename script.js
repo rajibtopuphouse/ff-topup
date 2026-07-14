@@ -1,3 +1,4 @@
+alert(uid + " | " + name + " | " + mobile + " | " + pack);
 function placeOrder() {
 
   const uidEl = document.getElementById("uid");
