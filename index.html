@@ -19,7 +19,7 @@
 <h2>Rajib Top-Up House</h2>
 <p>Fast & Trusted Free Fire Top-Up</p>
 </div>
-
+<button id="logoutBtn">Logout</button>
 <nav class="menu">
 <a href="#">Home</a>
 <a href="#">Top Up</a>
@@ -167,6 +167,17 @@ Place Order
 
 </nav>
 <script src="script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="firebase.js"></script>
 
+<script>
+document.getElementById("logoutBtn").onclick = function () {
+  auth.signOut().then(function () {
+    alert("Logout Successful");
+    window.location = "login.html";
+  });
+};
+</script>
 </body>
 </html>
