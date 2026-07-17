@@ -1,4 +1,4 @@
-import { API_BASE, getHeaders } from "../lib/flashtopup.js";
+import { API_BASE, getHeaders } from "./lib/flashtopup.js";
 
 export default async function handler(req, res) {
   try {
