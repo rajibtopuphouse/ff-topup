@@ -133,6 +133,26 @@ table.innerHTML+=`
 
 });
 </script>
+<script>
+function searchOrder(){
 
+const input=document.getElementById("search").value.toLowerCase();
+
+const rows=document.querySelectorAll("#ordersTable tr");
+
+rows.forEach(function(row,index){
+
+if(index===0) return;
+
+if(row.innerText.toLowerCase().includes(input)){
+row.style.display="";
+}else{
+row.style.display="none";
+}
+
+});
+
+}
+</script>
 </body>
 </html>
