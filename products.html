@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products Management</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111827;
+color:#fff;
+}
+
+header{
+background:#ff6a00;
+padding:15px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:#1f2937;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:none;
+border-radius:5px;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+margin:5px;
+}
+
+.add{
+background:#16a34a;
+color:#fff;
+}
+
+.edit{
+background:#2563eb;
+color:#fff;
+}
+
+.delete{
+background:#dc2626;
+color:#fff;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:#1f2937;
+}
+
+th{
+background:#ff6a00;
+padding:12px;
+}
+
+td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #333;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+padding:10px 20px;
+background:#ff6a00;
+color:white;
+text-decoration:none;
+border-radius:5px;
+}
+</style>
+
+</head>
+<body>
+
+<header>Products Management</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Add New Package</h2>
+
+<input type="text" placeholder="Package Name">
+
+<input type="number" placeholder="Price">
+
+<button class="add">Add Package</button>
+
+</div>
+
+<table>
+
+<tr>
+<th>Package</th>
+<th>Price</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>25 Diamonds</td>
+<td>৳22</td>
+<td>
+<button class="edit">Edit</button>
+<button class="delete">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>50 Diamonds</td>
+<td>৳36</td>
+<td>
+<button class="edit">Edit</button>
+<button class="delete">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>115 Diamonds</td>
+<td>৳79</td>
+<td>
+<button class="edit">Edit</button>
+<button class="delete">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>240 Diamonds</td>
+<td>৳158</td>
+<td>
+<button class="edit">Edit</button>
+<button class="delete">Delete</button>
+</td>
+</tr>
+
+</table>
+
+<a href="dashboard.html" class="back">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>
