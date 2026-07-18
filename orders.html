@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Management</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#111827;
+    color:#fff;
+}
+
+header{
+    background:#ff6a00;
+    padding:15px;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.container{
+    padding:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#1f2937;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+th{
+    background:#ff6a00;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #333;
+    text-align:center;
+}
+
+.approve{
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.reject{
+    background:#dc2626;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.back{
+    display:inline-block;
+    margin-top:20px;
+    background:#ff6a00;
+    color:white;
+    padding:10px 20px;
+    text-decoration:none;
+    border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<header>Order Management</header>
+
+<div class="container">
+
+<table>
+
+<tr>
+<th>Order ID</th>
+<th>Player UID</th>
+<th>Package</th>
+<th>Amount</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>1001</td>
+<td>123456789</td>
+<td>115 Diamonds</td>
+<td>৳79</td>
+<td>Pending</td>
+<td>
+<button class="approve">Approve</button>
+<button class="reject">Reject</button>
+</td>
+</tr>
+
+<tr>
+<td colspan="6">No More Orders</td>
+</tr>
+
+</table>
+
+<a href="dashboard.html" class="back">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>
