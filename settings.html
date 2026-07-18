@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111827;
+color:#fff;
+}
+
+header{
+background:#ff6a00;
+padding:15px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+max-width:600px;
+margin:30px auto;
+background:#1f2937;
+padding:20px;
+border-radius:10px;
+}
+
+label{
+display:block;
+margin-top:15px;
+margin-bottom:5px;
+}
+
+input{
+width:100%;
+padding:10px;
+border:none;
+border-radius:5px;
+}
+
+button{
+margin-top:20px;
+padding:12px 20px;
+background:#ff6a00;
+color:#fff;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+text-decoration:none;
+color:#fff;
+background:#374151;
+padding:10px 20px;
+border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<header>Settings</header>
+
+<div class="container">
+
+<label>FlashTopup API ID</label>
+<input type="text" placeholder="API ID">
+
+<label>FlashTopup API Key</label>
+<input type="password" placeholder="API Key">
+
+<label>Admin Email</label>
+<input type="email" placeholder="admin@example.com">
+
+<button>Save Settings</button>
+
+<br>
+
+<a href="dashboard.html" class="back">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>
