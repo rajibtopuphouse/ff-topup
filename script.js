@@ -1,25 +1,8 @@
-alert(uid + " | " + name + " | " + mobile + " | " + pack);
 function placeOrder() {
 
-  const uidEl = document.getElementById("uid");
-  const nameEl = document.getElementById("name");
-  const mobileEl = document.getElementById("mobile");
-  const packEl = document.getElementById("package");
-
-  alert(
-    "UID: " + (uidEl ? uidEl.value : "Not Found") +
-    "\nName: " + (nameEl ? nameEl.value : "Not Found") +
-    "\nMobile: " + (mobileEl ? mobileEl.value : "Not Found") +
-    "\nPackage: " + (packEl ? packEl.value : "Not Found")
-  );
-
-  // এরপর আপনার আগের কোড থাকবে...
-}
-function placeOrder() {
-
-  const uid = document.getElementById("uid").value;
-  const name = document.getElementById("name").value;
-  const mobile = document.getElementById("mobile").value;
+  const uid = document.getElementById("uid").value.trim();
+  const name = document.getElementById("name").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
   const pack = document.getElementById("package").value;
 
   if (!uid || !name || !mobile || !pack) {
@@ -27,14 +10,13 @@ function placeOrder() {
     return;
   }
 
-  // Firestore-এ অর্ডার সেভ
   db.collection("orders").add({
     uid: uid,
     name: name,
     mobile: mobile,
     package: pack,
     status: "Pending",
-    time: firebase.firestore.FieldValue.serverTimestamp()
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
   })
   .then(function () {
 
@@ -46,22 +28,26 @@ function placeOrder() {
 📱 Mobile: ${mobile}
 💎 Package: ${pack}`;
 
-    const whatsapp =
-      "https://wa.me/8801788655205?text=" +
-      encodeURIComponent(message);
+    window.open(
+      "https://wa.me/8801788655205?text=" + encodeURIComponent(message),
+      "_blank"
+    );
 
-    window.open(whatsapp, "_blank");
+    alert("✅ Order Submitted Successfully!");
 
-    alert("Order Submitted Successfully");
+    document.getElementById("uid").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("mobile").value = "";
+    document.getElementById("package").selectedIndex = 0;
 
   })
-  .catch(function (error) {
-    alert(error.message);
+  .catch(function(error) {
+    alert("Error: " + error.message);
   });
 
 }
 
-// Slider
+// Banner Slider
 const images = [
   "1783852642908.jpg",
   "1783852699516.jpg",
@@ -72,5 +58,8 @@ let current = 0;
 
 setInterval(function () {
   current = (current + 1) % images.length;
-  document.getElementById("slider").src = images[current];
+  const slider = document.getElementById("slider");
+  if (slider) {
+    slider.src = images[current];
+  }
 }, 3000);
