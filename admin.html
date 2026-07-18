@@ -3,55 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel</title>
-
-<link rel="stylesheet" href="style.css">
+<title>Rajib Top-Up House - Admin Panel</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#111827;
+color:#fff;
+}
+
+header{
+background:#ff6a00;
+padding:15px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+}
+
 table{
 width:100%;
 border-collapse:collapse;
 margin-top:20px;
+background:#1f2937;
 }
 
 th,td{
-border:1px solid #ddd;
+border:1px solid #333;
 padding:10px;
 text-align:center;
 }
 
 th{
 background:#ff6a00;
-color:white;
+}
+
+button{
+margin-top:20px;
+padding:10px 20px;
+background:#ff6a00;
+color:#fff;
+border:none;
+border-radius:5px;
+cursor:pointer;
 }
 </style>
-
 </head>
+
 <body>
+
+<header>
+Rajib Top-Up House - Admin Panel
+</header>
 
 <div class="container">
 
-<h2>Rajib Top-Up House - Admin Panel</h2>
+<h2>Live Orders</h2>
 
-<table>
-
+<table id="ordersTable">
 <tr>
-<th>Player</th>
 <th>UID</th>
+<th>Name</th>
+<th>Mobile</th>
 <th>Package</th>
 <th>Status</th>
 </tr>
-
-<tr>
-<td>Example</td>
-<td>123456789</td>
-<td>115 Diamond</td>
-<td>Pending</td>
-</tr>
-
 </table>
 
+<button onclick="logout()">Logout</button>
+
 </div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="firebase.js"></script>
+
+<script>
+function logout(){
+window.location="login.html";
+}
+
+db.collection("orders")
+.orderBy("time","desc")
+.onSnapshot(function(snapshot){
+
+const table=document.getElementById("ordersTable");
+
+table.innerHTML=`
+<tr>
+<th>UID</th>
+<th>Name</th>
+<th>Mobile</th>
+<th>Package</th>
+<th>Status</th>
+</tr>`;
+
+snapshot.forEach(function(doc){
+
+const data=doc.data();
+
+table.innerHTML+=`
+<tr>
+<td>${data.uid||""}</td>
+<td>${data.name||""}</td>
+<td>${data.mobile||""}</td>
+<td>${data.package||""}</td>
+<td>${data.status||""}</td>
+</tr>
+`;
+
+});
+
+});
+</script>
 
 </body>
 </html>
