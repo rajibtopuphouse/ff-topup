@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajib Top-Up House - Admin Dashboard</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#111827;
+color:white;
+}
+
+header{
+background:#ff6a00;
+padding:15px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-bottom:20px;
+}
+
+.card{
+background:#1f2937;
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+.card h2{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#ddd;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:#1f2937;
+border-radius:10px;
+overflow:hidden;
+}
+
+th{
+background:#ff6a00;
+padding:12px;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #333;
+text-align:center;
+}
+
+button{
+background:#ff6a00;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+color:white;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:hover{
+background:#ff8800;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+Rajib Top-Up House - Admin Dashboard
+</header>
+
+<div class="container">
+
+<div class="cards">
+
+<div class="card">
+<h2>0</h2>
+<p>Total Orders</p>
+</div>
+
+<div class="card">
+<h2>0</h2>
+<p>Pending Orders</p>
+</div>
+
+<div class="card">
+<h2>0</h2>
+<p>Completed Orders</p>
+</div>
+
+<div class="card">
+<h2>৳0</h2>
+<p>Wallet Balance</p>
+</div>
+
+</div>
+
+<h2 style="margin-bottom:10px;">Latest Orders</h2>
+
+<table>
+
+<tr>
+<th>Order ID</th>
+<th>UID</th>
+<th>Package</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td colspan="4">No Orders Found</td>
+</tr>
+
+</table>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+<script>
+function logout(){
+window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>
