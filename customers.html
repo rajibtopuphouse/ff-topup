@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customers Management</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111827;
+color:#fff;
+}
+
+header{
+background:#ff6a00;
+padding:15px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+}
+
+.search{
+width:100%;
+padding:12px;
+border:none;
+border-radius:5px;
+margin-bottom:20px;
+font-size:16px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:#1f2937;
+border-radius:10px;
+overflow:hidden;
+}
+
+th{
+background:#ff6a00;
+padding:12px;
+}
+
+td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #333;
+}
+
+.status{
+background:#16a34a;
+padding:5px 10px;
+border-radius:5px;
+display:inline-block;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+padding:10px 20px;
+background:#ff6a00;
+color:white;
+text-decoration:none;
+border-radius:5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>Customers Management</header>
+
+<div class="container">
+
+<input
+type="text"
+class="search"
+placeholder="Search by Name / UID / Mobile">
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>UID</th>
+<th>Mobile</th>
+<th>Total Orders</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Rajib</td>
+<td>123456789</td>
+<td>017XXXXXXXX</td>
+<td>5</td>
+<td><span class="status">Active</span></td>
+</tr>
+
+<tr>
+<td colspan="5">No More Customers</td>
+</tr>
+
+</table>
+
+<a href="dashboard.html" class="back">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>
