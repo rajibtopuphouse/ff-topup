@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajib Top-Up House - Admin Panel</title>
+<title>Rajib Top-Up House Admin</title>
 
 <style>
-*{
+  *{
 margin:0;
 padding:0;
 box-sizing:border-box;
@@ -30,6 +30,28 @@ font-weight:bold;
 padding:20px;
 }
 
+input{
+padding:10px;
+width:250px;
+border:none;
+border-radius:5px;
+margin-bottom:15px;
+}
+
+button{
+padding:10px 20px;
+background:#ff6a00;
+color:#fff;
+border:none;
+border-radius:5px;
+cursor:pointer;
+margin:5px;
+}
+
+button:hover{
+background:#ff8800;
+}
+
 table{
 width:100%;
 border-collapse:collapse;
@@ -37,26 +59,22 @@ margin-top:20px;
 background:#1f2937;
 }
 
-th,td{
+th{
+background:#ff6a00;
+padding:12px;
+}
+
+td{
+padding:12px;
 border:1px solid #333;
-padding:10px;
 text-align:center;
 }
 
-th{
-background:#ff6a00;
-}
-
-button{
-margin-top:20px;
-padding:10px 20px;
-background:#ff6a00;
-color:#fff;
-border:none;
-border-radius:5px;
-cursor:pointer;
+tr:nth-child(even){
+background:#222b3c;
 }
 </style>
+
 </head>
 
 <body>
@@ -66,38 +84,41 @@ Rajib Top-Up House - Admin Panel
 </header>
 
 <div class="container">
-table id="ordersTable">
-  <br>
+  <h2>Live Orders</h2>
 
 <input
 type="text"
 id="search"
-placeholder="Search UID"
-style="padding:10px;width:250px;border-radius:5px;border:none;">
+placeholder="Search by UID"
+onkeyup="searchOrder()">
 
-<button onclick="searchOrder()">
-Search
-</button>
+<table id="ordersTable">
+
 <tr>
 <th>UID</th>
 <th>Name</th>
 <th>Mobile</th>
 <th>Package</th>
 <th>Status</th>
+<th>Action</th>
 </tr>
+
 </table>
 
-<button onclick="logout()">Logout</button>
+<br>
+
+<button onclick="logout()">
+Logout
+</button>
 
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="firebase.js"></script>
-
 <script>
 function logout(){
-window.location="login.html";
+  window.location="login.html";
 }
 
 db.collection("orders")
@@ -113,6 +134,7 @@ table.innerHTML=`
 <th>Mobile</th>
 <th>Package</th>
 <th>Status</th>
+<th>Action</th>
 </tr>`;
 
 snapshot.forEach(function(doc){
@@ -125,16 +147,10 @@ table.innerHTML+=`
 <td>${data.name||""}</td>
 <td>${data.mobile||""}</td>
 <td>${data.package||""}</td>
-<td<td>${data.status||""}</td>
-
+<td>${data.status||"Pending"}</td>
 <td>
-<button onclick="completeOrder('${doc.id}')">
-✅ Complete
-</button>
-
-<button onclick="deleteOrder('${doc.id}')">
-❌ Delete
-</button>
+<button onclick="completeOrder('${doc.id}')">✅</button>
+<button onclick="deleteOrder('${doc.id}')">❌</button>
 </td>
 </tr>
 `;
@@ -142,8 +158,7 @@ table.innerHTML+=`
 });
 
 });
-</script>
-<script>
+
 function searchOrder(){
 
 const input=document.getElementById("search").value.toLowerCase();
@@ -152,66 +167,32 @@ const rows=document.querySelectorAll("#ordersTable tr");
 
 rows.forEach(function(row,index){
 
-if(index===0) return;
+if(index===0)return;
 
-if(row.innerText.toLowerCase().includes(input)){
-row.style.display="";
-}else{
-row.style.display="none";
-}
+row.style.display=row.innerText.toLowerCase().includes(input)?"":"none";
 
 });
 
 }
-</script
-  <script>
+
 function completeOrder(id){
-  db.collection("orders").doc(id).update({
-    status:"Completed"
-  }).then(function(){
-    alert("Order Completed");
-  });
+
+db.collection("orders").doc(id).update({
+status:"Completed"
+});
+
 }
 
 function deleteOrder(id){
-  if(confirm("Delete this order?")){
-    db.collection("orders").doc(id).delete().then(function(){
-      alert("Order Deleted");
-    });
-  }
-}
-</script><script>
-function completeOrder(id){
-  db.collection("orders").doc(id).update({
-    status:"Completed"
-  }).then(function(){
-    alert("Order Completed");
-  });
+
+if(confirm("Delete this order?")){
+
+db.collection("orders").doc(id).delete();
+
 }
 
-function deleteOrder(id){
-  if(confirm("Delete this order?")){
-    db.collection("orders").doc(id).delete().then(function(){
-      alert("Order Deleted");
-    });
-  }
-}
-</script><script>
-function completeOrder(id){
-  db.collection("orders").doc(id).update({
-    status:"Completed"
-  }).then(function(){
-    alert("Order Completed");
-  });
-}
-
-function deleteOrder(id){
-  if(confirm("Delete this order?")){
-    db.collection("orders").doc(id).delete().then(function(){
-      alert("Order Deleted");
-    });
-  }
 }
 </script>
+
 </body>
 </html>
