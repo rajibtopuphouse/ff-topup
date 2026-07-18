@@ -125,7 +125,17 @@ table.innerHTML+=`
 <td>${data.name||""}</td>
 <td>${data.mobile||""}</td>
 <td>${data.package||""}</td>
-<td>${data.status||""}</td>
+<td<td>${data.status||""}</td>
+
+<td>
+<button onclick="completeOrder('${doc.id}')">
+✅ Complete
+</button>
+
+<button onclick="deleteOrder('${doc.id}')">
+❌ Delete
+</button>
+</td>
 </tr>
 `;
 
@@ -152,6 +162,55 @@ row.style.display="none";
 
 });
 
+}
+</script
+  <script>
+function completeOrder(id){
+  db.collection("orders").doc(id).update({
+    status:"Completed"
+  }).then(function(){
+    alert("Order Completed");
+  });
+}
+
+function deleteOrder(id){
+  if(confirm("Delete this order?")){
+    db.collection("orders").doc(id).delete().then(function(){
+      alert("Order Deleted");
+    });
+  }
+}
+</script><script>
+function completeOrder(id){
+  db.collection("orders").doc(id).update({
+    status:"Completed"
+  }).then(function(){
+    alert("Order Completed");
+  });
+}
+
+function deleteOrder(id){
+  if(confirm("Delete this order?")){
+    db.collection("orders").doc(id).delete().then(function(){
+      alert("Order Deleted");
+    });
+  }
+}
+</script><script>
+function completeOrder(id){
+  db.collection("orders").doc(id).update({
+    status:"Completed"
+  }).then(function(){
+    alert("Order Completed");
+  });
+}
+
+function deleteOrder(id){
+  if(confirm("Delete this order?")){
+    db.collection("orders").doc(id).delete().then(function(){
+      alert("Order Deleted");
+    });
+  }
 }
 </script>
 </body>
