@@ -122,7 +122,7 @@ function logout(){
 }
 
 db.collection("orders")
-.orderBy("time","desc")
+.onSnapshot(function(snapshot){
 .onSnapshot(function(snapshot){
 
 const table=document.getElementById("ordersTable");
