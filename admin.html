@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajib Top-Up House Admin</title>
+
+<title>Rajib Top-Up House - Admin Panel</title>
 
 <style>
-  *{
+
+*{
 margin:0;
 padding:0;
 box-sizing:border-box;
@@ -20,43 +22,37 @@ color:#fff;
 
 header{
 background:#ff6a00;
-padding:15px;
+padding:18px;
 text-align:center;
-font-size:24px;
+font-size:28px;
 font-weight:bold;
 }
 
 .container{
+max-width:1200px;
+margin:auto;
 padding:20px;
 }
 
-input{
-padding:10px;
-width:250px;
-border:none;
-border-radius:5px;
+h2{
 margin-bottom:15px;
 }
 
-button{
-padding:10px 20px;
-background:#ff6a00;
-color:#fff;
+input{
+width:100%;
+padding:12px;
 border:none;
-border-radius:5px;
-cursor:pointer;
-margin:5px;
-}
-
-button:hover{
-background:#ff8800;
+border-radius:6px;
+margin-bottom:20px;
+font-size:16px;
+outline:none;
 }
 
 table{
 width:100%;
 border-collapse:collapse;
-margin-top:20px;
 background:#1f2937;
+margin-top:10px;
 }
 
 th{
@@ -73,6 +69,44 @@ text-align:center;
 tr:nth-child(even){
 background:#222b3c;
 }
+
+button{
+padding:8px 15px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-weight:bold;
+margin:3px;
+}
+
+.complete{
+background:#16a34a;
+color:white;
+}
+
+.delete{
+background:#dc2626;
+color:white;
+}
+
+.logout{
+background:#ff6a00;
+color:white;
+margin-top:20px;
+}
+
+.complete:hover{
+background:#15803d;
+}
+
+.delete:hover{
+background:#b91c1c;
+}
+
+.logout:hover{
+background:#ff8800;
+}
+
 </style>
 
 </head>
@@ -84,7 +118,8 @@ Rajib Top-Up House - Admin Panel
 </header>
 
 <div class="container">
-  <h2>Live Orders</h2>
+
+<h2>Live Orders</h2>
 
 <input
 type="text"
@@ -93,8 +128,7 @@ placeholder="Search by UID"
 onkeyup="searchOrder()">
 
 <table id="ordersTable">
-
-<tr>
+ <tr>
 <th>UID</th>
 <th>Name</th>
 <th>Mobile</th>
@@ -107,22 +141,23 @@ onkeyup="searchOrder()">
 
 <br>
 
-<button onclick="logout()">
+<button class="logout" onclick="logout()">
 Logout
 </button>
 
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="firebase.js"></script>
+
+<script>
+
 function logout(){
-  window.location="login.html";
+window.location="login.html";
 }
 
 db.collection("orders")
-.onSnapshot(function(snapshot){
 .onSnapshot(function(snapshot){
 
 const table=document.getElementById("ordersTable");
@@ -136,30 +171,45 @@ table.innerHTML=`
 <th>Status</th>
 <th>Action</th>
 </tr>`;
-
+ 
 snapshot.forEach(function(doc){
 
-const data=doc.data();
+const data = doc.data();
 
-table.innerHTML+=`
+table.innerHTML += `
 <tr>
-<td>${data.uid||""}</td>
-<td>${data.name||""}</td>
-<td>${data.mobile||""}</td>
-<td>${data.package||""}</td>
-<td>${data.status||"Pending"}</td>
+
+<td>${data.uid || ""}</td>
+
+<td>${data.name || ""}</td>
+
+<td>${data.mobile || ""}</td>
+
+<td>${data.package || ""}</td>
+
+<td>${data.status || "Pending"}</td>
+
 <td>
-<button onclick="completeOrder('${doc.id}')">✅</button>
-<button onclick="deleteOrder('${doc.id}')">❌</button>
+
+<button class="complete"
+onclick="completeOrder('${doc.id}')">
+✅ Complete
+</button>
+
+<button class="delete"
+onclick="deleteOrder('${doc.id}')">
+❌ Delete
+</button>
+
 </td>
+
 </tr>
 `;
 
 });
 
-});
-
-function searchOrder(){
+})
+ function searchOrder(){
 
 const input=document.getElementById("search").value.toLowerCase();
 
@@ -179,6 +229,8 @@ function completeOrder(id){
 
 db.collection("orders").doc(id).update({
 status:"Completed"
+}).then(function(){
+alert("Order Completed");
 });
 
 }
@@ -187,11 +239,14 @@ function deleteOrder(id){
 
 if(confirm("Delete this order?")){
 
-db.collection("orders").doc(id).delete();
+db.collection("orders").doc(id).delete().then(function(){
+alert("Order Deleted");
+});
 
 }
 
 }
+
 </script>
 
 </body>
