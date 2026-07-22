@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rajib Top-Up House</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+<h2>Rajib Top-Up House</h2>
+<p>Fast • Safe • Trusted</p>
+</div>
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#topup">Top Up</a>
+
+<a href="#membership">Membership</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+<button id="logoutBtn">
+Logout
+</button>
+
+</header>
+
+<section class="hero" id="home">
+
+<img id="slider"
+src="1783852642908.jpg"
+alt="Banner">
+
+<div class="hero-text">
+
+<h1>Free Fire Diamond Top-Up</h1>
+
+<p>Bangladesh Server • Instant Delivery</p>
+
+<a href="#topup" class="btn">
+Order Now
+</a>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<div class="feature">
+⚡ Instant Delivery
+</div>
+
+<div class="feature">
+🛡️ 100% Safe
+</div>
+
+<div class="feature">
+💎 Best Price
+</div>
+
+<div class="feature">
+📱 24/7 Support
+</div>
+
+</section>
+
+<section class="container" id="topup">
+
+<div class="game-card">
+
+<img
+src="https://wallpaperaccess.com/full/6805467.jpg"
+alt="Free Fire">
+
+<div>
+
+<h2>Free Fire</h2>
+
+<p>Bangladesh Server</p>
+
+</div>
+
+</div>
+
+<div class="order-card">
+
+<h2>Top-Up Order</h2>
+
+<input
+type="number"
+id="uid"
+placeholder="Enter UID">
+
+<input
+type="text"
+id="name"
+placeholder="Player Name">
+
+<input
+type="tel"
+id="mobile"
+placeholder="Mobile Number">
+
+<select id="package">
+
+<option value="">Select Package</option>
+
+<option>25 Diamond - ৳22</option>
+
+<option>50 Diamond - ৳36</option>
+
+<option>115 Diamond - ৳79</option>
+
+<option>240 Diamond - ৳158</option>
+
+<option>355 Diamond - ৳237</option>
+
+<option>480 Diamond - ৳315</option>
+
+<option>610 Diamond - ৳400</option>
+
+<option>850 Diamond - ৳558</option>
+
+<option>1240 Diamond - ৳800</option>
+
+<option>2530 Diamond - ৳1610</option>
+
+<option>5060 Diamond - ৳3220</option>
+
+<option>10120 Diamond - ৳6440</option>
+
+<option>Weekly Lite - ৳40</option>
+
+<option>Weekly Membership - ৳150</option>
+
+<option>Monthly Membership - ৳700</option>
+
+</select>
+
+<button onclick="placeOrder()">
+
+Place Order
+
+</button>
+
+</div>
+
+</section>
+<section id="membership" class="offers">
+
+<h2>🔥 Special Offers</h2>
+
+<div class="offer-card">
+🎁 First Top-Up Bonus
+</div>
+
+<div class="offer-card">
+⚡ Instant Delivery
+</div>
+
+<div class="offer-card">
+🛡️ 100% Safe & Trusted
+</div>
+
+</section>
+
+<section class="payment" id="contact">
+
+<h2>Payment Method</h2>
+
+<p>📱 bKash : 01788655205</p>
+
+<p>📱 Nagad : 01788655205</p>
+
+<p>
+💬 WhatsApp :
+<a href="https://wa.me/8801788655205" target="_blank">
+01788655205
+</a>
+</p>
+
+</section>
+
+<section class="reviews">
+
+<h2>⭐ Customer Reviews</h2>
+
+<div class="review-card">
+⭐⭐⭐⭐⭐
+<p>Very Fast Delivery. Thank you Rajib Top-Up House.</p>
+<b>— Rahim</b>
+</div>
+
+<div class="review-card">
+⭐⭐⭐⭐⭐
+<p>Trusted Service. I received my diamonds quickly.</p>
+<b>— Karim</b>
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Rajib Top-Up House</p>
+
+</footer>
+
+<nav class="bottom-nav">
+
+<a href="#home">🏠<br>Home</a>
+
+<a href="#topup">💎<br>Top Up</a>
+
+<a href="#membership">🎁<br>Offers</a>
+
+<a href="https://wa.me/8801788655205" target="_blank">
+💬<br>Support
+</a>
+
+</nav>
+
+<script src="script.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="firebase.js"></script>
+
+<script>
+
+document.getElementById("logoutBtn").onclick=function(){
+
+auth.signOut().then(function(){
+
+window.location="login.html";
+
+});
+
+};
+
+auth.onAuthStateChanged(function(user){
+
+if(!user){
+
+window.location="login.html";
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
