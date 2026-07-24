@@ -129,7 +129,13 @@ onkeyup="searchOrder()">
 
 <table id="ordersTable">
  <tr>
-<th>UID</th>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="firebase.js">
+ 
+</script>
+  th>UID</th>
 <th>Name</th>
 <th>Mobile</th>
 <th>Package</th>
@@ -147,11 +153,7 @@ Logout
 
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-<script src="firebase.js"></script>
 
-<script>
 
 function logout(){
 window.location="login.html";
