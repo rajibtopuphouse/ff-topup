@@ -1,3 +1,4 @@
+alert("script.js loaded");
 // ===========================
 // Rajib Top-Up House v2
 // script.js
