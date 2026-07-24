@@ -29,3 +29,4 @@ db.enablePersistence({ synchronizeTabs: true })
 });
 
 console.log("✅ Firebase Connected");
+alert("Firebase Loaded");
