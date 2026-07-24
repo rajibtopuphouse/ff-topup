@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajib Top-Up House - Admin Panel</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#111827;
+color:#fff;
+}
+
+header{
+background:#ff6a00;
+padding:18px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+h2{
+margin-bottom:15px;
+}
+
+input{
+width:100%;
+padding:12px;
+border:none;
+border-radius:6px;
+margin-bottom:20px;
+font-size:16px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:#1f2937;
+}
+
+th{
+background:#ff6a00;
+padding:12px;
+}
+
+td{
+padding:12px;
+border:1px solid #333;
+text-align:center;
+}
+
+button{
+padding:8px 14px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+margin:2px;
+font-weight:bold;
+}
+
+.complete{
+background:#16a34a;
+color:#fff;
+}
+
+.delete{
+background:#dc2626;
+color:#fff;
+}
+
+.logout{
+background:#ff6a00;
+color:#fff;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+Rajib Top-Up House - Admin Panel
+</header>
+
+<div class="container">
+
+<h2>Live Orders</h2>
+
+<input
+type="text"
+id="search"
+placeholder="Search UID"
+onkeyup="searchOrder()">
+
+<table id="ordersTable">
+
+<tr>
+<th>UID</th>
+<th>Name</th>
+<th>Mobile</th>
+<th>Package</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+</table>
+
+<br>
+
+<button class="logout" onclick="logout()">
+Logout
+</button>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="firebase.js"></script>
+
+<script>
+function logout(){
+  auth.signOut().then(function(){
+    window.location="login.html";
+  });
+}
+
+db.collection("orders")
+.orderBy("createdAt","desc")
+.onSnapshot(function(snapshot){
+
+const table=document.getElementById("ordersTable");
+
+table.innerHTML=`
+<tr>
+<th>UID</th>
+<th>Name</th>
+<th>Mobile</th>
+<th>Package</th>
+<th>Status</th>
+<th>Action</th>
+</tr>`;
+
+snapshot.forEach(function(doc){
+
+const data=doc.data();
+
+table.innerHTML+=`
+<tr>
+<td>${data.uid||""}</td>
+<td>${data.name||""}</td>
+<td>${data.mobile||""}</td>
+<td>${data.package||""}</td>
+<td>${data.status||"Pending"}</td>
+<td>
+<button class="complete" onclick="completeOrder('${doc.id}')">✅ Complete</button>
+<button class="delete" onclick="deleteOrder('${doc.id}')">❌ Delete</button>
+</td>
+</tr>`;
+});
+
+});
+
+function searchOrder(){
+const input=document.getElementById("search").value.toLowerCase();
+const rows=document.querySelectorAll("#ordersTable tr");
+rows.forEach(function(row,index){
+if(index===0)return;
+row.style.display=row.innerText.toLowerCase().includes(input)?"":"none";
+});
+}
+
+function completeOrder(id){
+db.collection("orders").doc(id).update({
+status:"Completed"
+}).then(function(){
+alert("Order Completed");
+});
+}
+
+function deleteOrder(id){
+if(confirm("Delete this order?")){
+db.collection("orders").doc(id).delete().then(function(){
+alert("Order Deleted");
+});
+}
+}
+</script>
+
+</body>
+</html>
